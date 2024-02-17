@@ -1,9 +1,10 @@
 import { Container } from "./styles";
+import { Card } from "../Card";
 
 export function Gallery() {
   return (
     <Container>
-      <h1>Gallery</h1>
+        <Card name="bulbasaur" />
     </Container>
   );
 };
