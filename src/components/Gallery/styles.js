@@ -5,7 +5,7 @@ export const Container = styled.div`
 
     width: 100%;
     min-height: 100vh;
-    padding: 20rem 3rem 0;
+    padding: 25rem 3rem 0;
 
     display: grid;
 
