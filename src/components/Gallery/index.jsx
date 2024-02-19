@@ -4,7 +4,7 @@ import { Card } from "../Card";
 export function Gallery() {
   return (
     <Container>
-        <Card name="bulbasaur" />
+        <Card id="1" />
     </Container>
   );
 };
