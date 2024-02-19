@@ -16,6 +16,14 @@ export const Container = styled.div`
 
     border-radius: 1rem;
 
+    transition: all 0.3s;
+
+    &:hover {
+        cursor: pointer;
+        transform: scale(1.1);
+        box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+    }
+
     > .avatar {
         position: absolute;
         top: -40%;
