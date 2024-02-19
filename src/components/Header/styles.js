@@ -4,6 +4,7 @@ export const Container = styled.div`
     grid-area: header;
 
     position: fixed;
+    z-index: 999;
 
     width: 100%;
     padding: 3rem;

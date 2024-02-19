@@ -2,11 +2,11 @@ import { useEffect, useState } from "react";
 import { Container, TypeTag } from "./styles";
 import api from "../../services/api";
 
-export function Card({ id }) {
+export function Card({ name }) {
     const [pokemon, setPokemon] = useState({});
 
     useEffect(() => {
-        api.get(`/pokemon/${id}`).then(response => {
+        api.get(`/pokemon/${name}`).then(response => {
             const { id, name, types, sprites } = response.data;
 
             let backgroundColor = types[0].type.name;
