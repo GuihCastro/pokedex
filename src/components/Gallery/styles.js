@@ -10,7 +10,7 @@ export const Container = styled.div`
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     /* grid-template-rows: repeat(auto-fill, minmax(200px, 1fr)); */
-    grid-gap: 10rem 0; 
+    grid-gap: 10rem 2rem; 
 
     justify-content: center;
     align-items: center;
