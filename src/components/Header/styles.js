@@ -18,5 +18,9 @@ export const Container = styled.div`
 
     > img {
         width: 250px;
+
+        @media (max-width: 426px) {
+            width: 200px;
+        }
     }
 `;
