@@ -38,4 +38,8 @@ export default createGlobalStyle`
     a:hover {
         color: ${({ theme }) => theme.COLORS.SELECTION};
     }
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
 `;

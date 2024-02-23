@@ -100,11 +100,15 @@ export const Modal = styled.div`
 `;
 
 export const ModalCard = styled.div`
+    position: relative;
+
     max-width: 90%;
     max-height: 90%;
 
     display: flex;
     flex-direction: column;
+
+    padding: 0 0 2rem;
 
     background-color: ${({ theme }) => theme.COLORS.TEXT.primary};
 
@@ -112,32 +116,34 @@ export const ModalCard = styled.div`
 
     > div.selectedAvatar {
         width: 100%;
-        text-align: center;
-        background-color: ${({ theme, color }) => theme.COLORS.CARD_BG[color]};
-        border-radius: 2rem;
 
-        box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.2);
-        -webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.2);
-        -moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.2);
+        div.image {
+            text-align: center;
+            background-color: ${({ theme, color }) => theme.COLORS.CARD_BG[color]};
+            border-radius: 2rem;
+
+            box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.2);
+            -webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.2);
+            -moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.2);
+        }
 
         img {
             max-width: 80%;
         }
-    }
-
-    > div.info {
-        width: 100%;
-        padding: 2rem 1rem;
-
-        color: ${({ theme }) => theme.COLORS.TEXT.black};
-
-        overflow: auto;
 
         div.info__1 {
-            display: flex;
-            justify-content: space-between;
+            padding: 2rem 1rem 0;
+
+            div.info__1__1 {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                padding-bottom: 2rem;
+                border-bottom: 1px solid ${({ theme, color }) => theme.COLORS.CARD_BG[color]};
+            }
 
             h2 {
+                color: ${({ theme }) => theme.COLORS.TEXT.black};
                 text-transform: uppercase;
                 font-weight: bold;
             }
@@ -147,10 +153,57 @@ export const ModalCard = styled.div`
                 gap: 0.5rem;
             }
         }
+    }
+`;
 
-        p {
+export const ModalInfo = styled.div`
+    width: 100%;
+    padding: 2rem 1rem;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    color: ${({ theme }) => theme.COLORS.TEXT.black};
+
+    overflow: auto;
+
+    &::-webkit-scrollbar {
+        display: block;
+        width: 10px;
+    }
+
+    .info__line {
+        display: flex;
+        gap: 1rem;
+    }
+
+    .stats {
+        flex-direction: column;
+        gap: .5rem;
+
+        &.show {
             display: flex;
-            gap: 1rem;
+        }
+
+        &.hide {
+            display: none;
         }
     }
+
+    .stats__line {
+        display: flex;
+        gap: .5rem;
+    }
+`;
+
+export const ModalCloseButton = styled.button`
+    position: absolute;
+
+    top: 2rem;
+    right: 2rem;
+
+    background: none;
+    color: ${({ theme }) => theme.COLORS.TEXT.black};
+    border: none;
 `;

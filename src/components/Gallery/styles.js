@@ -15,8 +15,6 @@ export const Container = styled.div`
     justify-content: center;
     align-items: center;
 
-    overflow: auto;
-
     @media (max-width: 426px) {
         padding: 25rem 2rem 2rem;
         grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));

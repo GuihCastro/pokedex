@@ -1,3 +1,4 @@
+import { IoClose } from "react-icons/io5";
 import { useEffect, useState, useRef } from "react";
 import { Container, TypeTag, Modal, ModalCard, ModalInfo, ModalCloseButton } from "./styles";
 import api from "../../services/api";
@@ -81,7 +82,7 @@ export function Card({ name }) {
             <Modal className={modalOpen ? 'open' : 'closed'} onClick={(event) => handleOutsideClick(event)}>
                 <ModalCard color={pokemon.backgroundColor} ref={modalRef}>
                     <ModalCloseButton onClick={closeModal}>
-                        X
+                        <IoClose size={30} />
                     </ModalCloseButton>
 
                     <div className="selectedAvatar">
