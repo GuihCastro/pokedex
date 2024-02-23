@@ -1,3 +1,4 @@
+import { MdArrowLeft, MdArrowRight } from "react-icons/md";
 import { useState, useEffect } from "react";
 import api from "../../services/api";
 import { Container } from "./styles";
@@ -44,14 +45,18 @@ export function Gallery() {
   return (
     <Container>
 
-      <button onClick={handlePreviousClick} disabled={pokemonsOffsetApi == 0}>Previous</button>
+      <button onClick={handlePreviousClick} disabled={pokemonsOffsetApi == 0}>
+        <MdArrowLeft size={60} />
+      </button>
 
 
       {pokemons.map((pokemon, index) => (
         <Card key={index} name={pokemon.name} />
       ))}
 
-      <button onClick={handleNextClick} disabled={pokemonsOffsetApi == 1016}>Next</button>
+      <button onClick={handleNextClick} disabled={pokemonsOffsetApi == 1016}>
+        <MdArrowRight size={60} />
+      </button>
 
     </Container>
   );

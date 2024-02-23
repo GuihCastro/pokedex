@@ -22,4 +22,24 @@ export const Container = styled.div`
         grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
         grid-gap: 10rem 2rem;
     }
+
+    > button {
+        justify-self: center;
+        width: 6rem;
+        height: 6rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: ${({theme}) => theme.COLORS.BG.primary};
+        background: ${({theme}) => theme.COLORS.TEXT.orange};
+        border: 1px solid ${({theme}) => theme.COLORS.TEXT.orange};
+        border-radius: 50%;
+
+        &:disabled {
+            cursor: default;
+            background: none;
+            color: ${({theme}) => theme.COLORS.TEXT.secondary};
+            border: 1px solid ${({theme}) => theme.COLORS.TEXT.secondary};
+        }
+    }
 `;
