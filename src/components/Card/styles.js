@@ -67,4 +67,90 @@ export const TypeTag = styled.span`
 
     color: ${({ theme }) => theme.COLORS.TEXT.primary};
     background-color: ${({ theme, color }) => theme.COLORS.TYPE_BG[color]};
+
+    &.onDetail {
+        font-weight: bold;
+        font-size: 1.5rem;
+        color: ${({ theme }) => theme.COLORS.TEXT.black};
+    }
+`;
+
+export const Modal = styled.div`
+    &.open {
+        position: fixed;
+        z-index: 999;
+        top: 0;
+        left: 0;
+
+        width: 100%;
+        height: 100vh;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        background-color: #00000050;
+        backdrop-filter: blur(2px);
+        overflow: hidden;
+    }
+
+    &.closed {
+        display: none;
+    }
+`;
+
+export const ModalCard = styled.div`
+    max-width: 90%;
+    max-height: 90%;
+
+    display: flex;
+    flex-direction: column;
+
+    background-color: ${({ theme }) => theme.COLORS.TEXT.primary};
+
+    border-radius: 2rem;
+
+    > div.selectedAvatar {
+        width: 100%;
+        text-align: center;
+        background-color: ${({ theme, color }) => theme.COLORS.CARD_BG[color]};
+        border-radius: 2rem;
+
+        box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.2);
+        -webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.2);
+        -moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.2);
+
+        img {
+            max-width: 80%;
+        }
+    }
+
+    > div.info {
+        width: 100%;
+        padding: 2rem 1rem;
+
+        color: ${({ theme }) => theme.COLORS.TEXT.black};
+
+        overflow: auto;
+
+        div.info__1 {
+            display: flex;
+            justify-content: space-between;
+
+            h2 {
+                text-transform: uppercase;
+                font-weight: bold;
+            }
+
+            .types {
+                display: flex;
+                gap: 0.5rem;
+            }
+        }
+
+        p {
+            display: flex;
+            gap: 1rem;
+        }
+    }
 `;
