@@ -37,7 +37,7 @@ export const GalleryWrapper = styled.div`
 
 export const Button = styled.button`
     position: fixed;
-    z-index: 999;
+    z-index: 200;
     top: 50%;
     width: 6rem;
     height: 6rem;
