@@ -1,10 +1,12 @@
-import { useEffect, useState } from "react";
-import { Container, TypeTag, Modal, ModalCard } from "./styles";
+import { useEffect, useState, useRef } from "react";
+import { Container, TypeTag, Modal, ModalCard, ModalInfo, ModalCloseButton } from "./styles";
 import api from "../../services/api";
 
 export function Card({ name }) {
     const [pokemon, setPokemon] = useState({});
     const [modalOpen, setModalOpen] = useState(false);
+    const [showStats, setShowStats] = useState(false);
+    const modalRef = useRef(null);
 
     useEffect(() => {
         api.get(`/pokemon/${name}`).then(response => {
@@ -32,6 +34,20 @@ export function Card({ name }) {
 
     const openModal = () => {
         setModalOpen(true);
+    }
+
+    const closeModal = () => {
+        setModalOpen(false);
+    }
+
+    const handleStatsClick = () => {
+        setShowStats(!showStats);
+    }
+
+    const handleOutsideClick = (e) => {
+        if (modalRef.current !== null && !modalRef.current.contains(e.target)) {
+            setModalOpen(!modalOpen); 
+        }
     }
 
     return (
@@ -62,61 +78,72 @@ export function Card({ name }) {
                 )}
             </Container>
 
-            <Modal className={modalOpen ? 'open' : 'closed'}>
-                <ModalCard color={pokemon.backgroundColor}>
+            <Modal className={modalOpen ? 'open' : 'closed'} onClick={(event) => handleOutsideClick(event)}>
+                <ModalCard color={pokemon.backgroundColor} ref={modalRef}>
+                    <ModalCloseButton onClick={closeModal}>
+                        X
+                    </ModalCloseButton>
+
                     <div className="selectedAvatar">
-                        <img src={pokemon.avatar} alt={pokemon.name} />
-                    </div>
-
-                    <div className="info">
-                        <div className="info__1">
-                            <h2>{pokemon.name}</h2>
-
-                            {pokemon.type && (
-                                <div className="types">
-                                    {pokemon.type.map(pokemonType => (
-                                        <TypeTag
-                                            key={pokemonType.type.name}
-                                            color={pokemonType.type.name}
-                                            className="onDetail"
-                                        >
-                                            {pokemonType.type.name}
-                                        </TypeTag>
-                                    ))}
-                                </div>
-                            )}
+                        <div className="image">
+                            <img src={pokemon.avatar} alt={pokemon.name} />
                         </div>
 
-                        <p>
+                        <div className="info__1">
+                            <div className="info__1__1">
+                                <h2>{pokemon.name}</h2>
+
+                                {pokemon.type && (
+                                    <div className="types">
+                                        {pokemon.type.map(pokemonType => (
+                                            <TypeTag
+                                                key={pokemonType.type.name}
+                                                color={pokemonType.type.name}
+                                                className="onDetail"
+                                            >
+                                                {pokemonType.type.name}
+                                            </TypeTag>
+                                        ))}
+                                    </div>
+                                )}
+                            </div>
+                        </div>
+                    </div>
+
+                    <ModalInfo>
+                        <div className="info__line">
                             <h3>Pokédex index:</h3> <span>{pokemon.number}</span>
-                        </p>
+                        </div>
 
-                        <p>
+                        <div className="info__line">
                             <h3>Base experience:</h3> <span>{pokemon.xp}</span>
-                        </p>
+                        </div>
 
-                        <p>
+                        <div className="info__line">
                             <h3>Height:</h3> <span>{pokemon.height}</span>
-                        </p>
+                        </div>
 
-                        <p>
+                        <div className="info__line">
                             <h3>Weight:</h3> <span>{pokemon.weight}</span>
-                        </p>
+                        </div>
+
+                        <div className="info__line">
+                            <h3><a onClick={handleStatsClick}>Pokémon stats</a></h3>
+                        </div>
 
                         {pokemon.stats && (
-                                <div className="stats">
-                                    <h3>Pokémon stats</h3>
-                                    {pokemon.stats.map(stat => (
-                                        <p
-                                            key={stat.stat.name}
-                                            className="onDetail"
-                                        >
-                                            <h4>{stat.stat.name}:</h4> <span>{stat.base_stat}</span>
-                                        </p>
-                                    ))}
-                                </div>
-                            )}
-                    </div>
+                            <div className={showStats ? 'stats show' : 'stats hide'}>
+                                {pokemon.stats.map(stat => (
+                                    <div
+                                        key={stat.stat.name}
+                                        className="stats__line"
+                                    >
+                                        <h4>{stat.stat.name}:</h4> <span>{stat.base_stat}</span>
+                                    </div>
+                                ))}
+                            </div>
+                        )}
+                    </ModalInfo>
                 </ModalCard>
             </Modal>
         </>
