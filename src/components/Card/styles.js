@@ -1,4 +1,34 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+const modalOpenAnimation = keyframes`
+    0% {
+        transform: translate3d(0, -100px, 0);
+        transform-origin: 0% 0%;
+        opacity: 0;
+    }
+
+    10% {
+		opacity: 0;
+	}
+
+    100% {
+        transform: translate3d(0, 0, 0);
+        transform-origin: 0% 0%;
+        opacity: 1;
+    }
+`;
+
+const cardLoadAnimation = keyframes`
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+`;
 
 export const Container = styled.div`
     align-self: center;
@@ -20,6 +50,8 @@ export const Container = styled.div`
     border-radius: 1rem;
 
     transition: all 0.3s;
+
+    animation: ${cardLoadAnimation} .5s ease-in-out;
 
     &:hover {
         cursor: pointer;
@@ -113,6 +145,8 @@ export const ModalCard = styled.div`
     background-color: ${({ theme }) => theme.COLORS.TEXT.primary};
 
     border-radius: 2rem;
+
+    animation: ${modalOpenAnimation} .5s ease-in-out;
 
     > div.selectedAvatar {
         width: 100%;
