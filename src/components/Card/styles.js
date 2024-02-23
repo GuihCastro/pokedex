@@ -125,32 +125,33 @@ export const ModalCard = styled.div`
             box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.2);
             -webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.2);
             -moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.2);
+
+            img {
+                max-width: 80%;
+            }
         }
 
-        img {
-            max-width: 80%;
-        }
-
-        div.info__1 {
+        div.modalHeader {
             padding: 2rem 1rem 0;
 
-            div.info__1__1 {
+            div.modalHeader__title {
                 width: 100%;
                 display: flex;
+                align-items: center;
                 justify-content: space-between;
                 padding-bottom: 2rem;
                 border-bottom: 1px solid ${({ theme, color }) => theme.COLORS.CARD_BG[color]};
-            }
 
-            h2 {
-                color: ${({ theme }) => theme.COLORS.TEXT.black};
-                text-transform: uppercase;
-                font-weight: bold;
-            }
+                h2 {
+                    color: ${({ theme }) => theme.COLORS.TEXT.black};
+                    text-transform: uppercase;
+                    font-weight: bold;
+                }
 
-            .types {
-                display: flex;
-                gap: 0.5rem;
+                .types {
+                    display: flex;
+                    gap: 0.5rem;
+                }
             }
         }
     }
@@ -162,6 +163,7 @@ export const ModalInfo = styled.div`
 
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 1rem;
 
     color: ${({ theme }) => theme.COLORS.TEXT.black};
@@ -173,12 +175,25 @@ export const ModalInfo = styled.div`
         width: 10px;
     }
 
+    .info__center {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+    }
+
     .info__line {
         display: flex;
         gap: 1rem;
+        justify-content: center;
+
+        p {
+            color: ${({ theme, color }) => theme.COLORS.TYPE_BG[color]};
+            text-transform: uppercase;
+        }
     }
 
     .stats {
+        align-self: flex-start;
         flex-direction: column;
         gap: .5rem;
 
@@ -194,6 +209,10 @@ export const ModalInfo = styled.div`
     .stats__line {
         display: flex;
         gap: .5rem;
+    }
+
+    .subtitle {
+        align-self: center;
     }
 `;
 

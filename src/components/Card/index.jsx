@@ -13,22 +13,27 @@ export function Card({ name }) {
         api.get(`/pokemon/${name}`).then(response => {
             const { id, name, types, sprites, height, weight, base_experience, stats } = response.data;
 
-            let backgroundColor = types[0].type.name;
-            if (backgroundColor === 'normal' && types.length > 1) {
-                backgroundColor = types[1].type.name;
-            }
+            api.get(`/characteristic/${id}`).then(response => {
+                const { descriptions } = response.data;
 
-            setPokemon({
-                id,
-                name: name,
-                number: `#${String(id).padStart(3, "0")}`,
-                height: height,
-                weight: weight,
-                xp: base_experience,
-                avatar: sprites.other["official-artwork"].front_default,
-                type: types,
-                stats: stats,
-                backgroundColor: backgroundColor,
+                let backgroundColor = types[0].type.name;
+                if (backgroundColor === 'normal' && types.length > 1) {
+                    backgroundColor = types[1].type.name;
+                }
+
+                setPokemon({
+                    id,
+                    name: name,
+                    number: `#${String(id).padStart(3, "0")}`,
+                    height: height,
+                    weight: weight,
+                    xp: base_experience,
+                    avatar: sprites.other["official-artwork"].front_default,
+                    type: types,
+                    stats: stats,
+                    description: descriptions[7].description,
+                    backgroundColor: backgroundColor,
+                });
             });
         });
     });
@@ -47,7 +52,7 @@ export function Card({ name }) {
 
     const handleOutsideClick = (e) => {
         if (modalRef.current !== null && !modalRef.current.contains(e.target)) {
-            setModalOpen(!modalOpen); 
+            setModalOpen(!modalOpen);
         }
     }
 
@@ -90,8 +95,8 @@ export function Card({ name }) {
                             <img src={pokemon.avatar} alt={pokemon.name} />
                         </div>
 
-                        <div className="info__1">
-                            <div className="info__1__1">
+                        <div className="modalHeader">
+                            <div className="modalHeader__title">
                                 <h2>{pokemon.name}</h2>
 
                                 {pokemon.type && (
@@ -111,24 +116,34 @@ export function Card({ name }) {
                         </div>
                     </div>
 
-                    <ModalInfo>
-                        <div className="info__line">
-                            <h3>Pokédex index:</h3> <span>{pokemon.number}</span>
+                    <ModalInfo color={pokemon.backgroundColor}>
+                        <div className="info__line subtitle">
+                            <p>{pokemon.description}</p>
                         </div>
 
-                        <div className="info__line">
-                            <h3>Base experience:</h3> <span>{pokemon.xp}</span>
+                        <div className="info__center">
+                            <div className="info__column">
+                                <div className="info__line">
+                                    <h3>Pokédex index:</h3> <span>{pokemon.number}</span>
+                                </div>
+
+                                <div className="info__line">
+                                    <h3>Base experience:</h3> <span>{pokemon.xp}</span>
+                                </div>
+                            </div>
+
+                            <div className="info__column">
+                                <div className="info__line">
+                                    <h3>Height:</h3> <span>{pokemon.height}</span>
+                                </div>
+
+                                <div className="info__line">
+                                    <h3>Weight:</h3> <span>{pokemon.weight}</span>
+                                </div>
+                            </div>
                         </div>
 
-                        <div className="info__line">
-                            <h3>Height:</h3> <span>{pokemon.height}</span>
-                        </div>
-
-                        <div className="info__line">
-                            <h3>Weight:</h3> <span>{pokemon.weight}</span>
-                        </div>
-
-                        <div className="info__line">
+                        <div className="info__line subtitle">
                             <h3><a onClick={handleStatsClick}>Pokémon stats</a></h3>
                         </div>
 
