@@ -30,16 +30,12 @@ export const Container = styled.div`
         display: flex;
         justify-content: center;
         align-items: center;
-        color: ${({theme}) => theme.COLORS.BG.primary};
-        background: ${({theme}) => theme.COLORS.TEXT.orange};
-        border: 1px solid ${({theme}) => theme.COLORS.TEXT.orange};
-        border-radius: 50%;
+        background: none;
+        border: none;
+        color: ${({theme}) => theme.COLORS.TEXT.orange};
 
         &:disabled {
-            cursor: default;
-            background: none;
-            color: ${({theme}) => theme.COLORS.TEXT.secondary};
-            border: 1px solid ${({theme}) => theme.COLORS.TEXT.secondary};
+            display: none;
         }
     }
 `;

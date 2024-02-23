@@ -1,4 +1,4 @@
-import { MdArrowLeft, MdArrowRight } from "react-icons/md";
+import { FaMinusCircle, FaPlusCircle } from "react-icons/fa";
 import { useState, useEffect } from "react";
 import api from "../../services/api";
 import { Container } from "./styles";
@@ -46,7 +46,7 @@ export function Gallery() {
     <Container>
 
       <button onClick={handlePreviousClick} disabled={pokemonsOffsetApi == 0}>
-        <MdArrowLeft size={60} />
+        <FaMinusCircle size={60} />
       </button>
 
 
@@ -55,7 +55,7 @@ export function Gallery() {
       ))}
 
       <button onClick={handleNextClick} disabled={pokemonsOffsetApi == 1016}>
-        <MdArrowRight size={60} />
+        <FaPlusCircle size={60} />
       </button>
 
     </Container>
