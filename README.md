@@ -27,7 +27,7 @@ Este projeto é um aplicativo de Pokédex que permite aos usuários buscar e vis
 - CSS
 - ESLint
 
-##Contribuição
+## Contribuição
 
 Contribuições são bem-vindas! Siga os passos abaixo para contribuir:
 
