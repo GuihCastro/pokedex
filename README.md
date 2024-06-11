@@ -13,7 +13,7 @@ Aplicativo de Pokédex desenvolvido para o módulo 'React Avançado' do curso De
 
 Este projeto é um aplicativo de Pokédex que permite aos usuários buscar e visualizar informações sobre diferentes Pokémon. Foi desenvolvido como parte do módulo 'React Avançado' do curso DevQuest.
 
-###Funcionalidades
+### Funcionalidades
 
 - Busca de Pokémon pelo nome ou número.
 - Exibição de detalhes como tipo, habilidades e estatísticas base.
