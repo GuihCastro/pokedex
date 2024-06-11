@@ -1,8 +1,47 @@
-# React + Vite
+# Pokédex
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicativo de Pokédex desenvolvido para o módulo 'React Avançado' do curso DevQuest.
 
-Currently, two official plugins are available:
+## Índice
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [Visão Geral](#visão-geral)
+- [Funcionalidades](#funcionalidades)
+- [Tecnologias Utilizadas](#tecnologias-utilizadas)
+- [Contribuição](#contribuição)
+
+## Visão Geral
+
+Este projeto é um aplicativo de Pokédex que permite aos usuários buscar e visualizar informações sobre diferentes Pokémon. Foi desenvolvido como parte do módulo 'React Avançado' do curso DevQuest.
+
+###Funcionalidades
+
+- Busca de Pokémon pelo nome ou número.
+- Exibição de detalhes como tipo, habilidades e estatísticas base.
+- Interface amigável e responsiva.
+
+## Tecnologias Utilizadas
+
+- React
+- JavaScript
+- Vite
+- CSS
+- ESLint
+
+##Contribuição
+
+Contribuições são bem-vindas! Siga os passos abaixo para contribuir:
+
+1. Faça um fork do projeto.
+2. Crie uma nova branch:
+   ```bash
+   git checkout -b minha-nova-funcionalidade
+   ```
+3. Faça suas modificações e commite:
+   ```bash
+   git commit -m 'Adicionei nova funcionalidade'
+   ```
+4. Envie para a branch original:
+   ```bash
+   git push origin minha-nova-funcionalidade
+   ```
+5. Abra um Pull Request.
